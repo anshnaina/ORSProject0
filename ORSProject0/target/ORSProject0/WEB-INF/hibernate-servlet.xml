@@ -1,0 +1,62 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
+		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd">
+
+	<!-- Getting Database properties -->
+	<context:property-placeholder location="classpath:system.properties" />
+
+	<!--DataSource **** Data Connection Pool and Trasnsaction handling start -->
+	<bean id="dataSourceC3P0" class="com.mchange.v2.c3p0.ComboPooledDataSource"
+		destroy-method="close">
+		<property name="driverClass" value="${database.driver}" />
+		<property name="jdbcUrl" value="${database.url}" />
+		<property name="user" value="${database.user}" />
+		<property name="password" value="${database.password}" />
+		<property name="acquireIncrement" value="${database.acquireIncrement}" />
+		<property name="minPoolSize" value="${database.minPoolSize}" />
+		<property name="maxPoolSize" value="${database.maxPoolSize}" />
+		<property name="maxIdleTime" value="${database.maxIdleTime}" />
+	</bean>
+	
+	<!-- Hibernate SessionFactory -->
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+		<property name="dataSource" ref="dataSourceC3P0"></property>
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">${hibernate.dialect}</prop>
+				<prop key="hibernate.hbm2ddl.auto">${hibernate.hbm2ddl.auto}</prop>
+				<prop key="hibernate.format_sql">${hibernate.format_sql}</prop>
+				<prop key="hibernate.show_sql">${hibernate.show_sql}</prop>
+			</props>
+		</property>
+		<property name="packagesToScan" value="in.co.rays.proj0.dto"></property>
+
+		<property name="annotatedClasses">
+			<list>
+				<value>in.co.rays.proj0.dto.RoleDTO</value>
+				<value>in.co.rays.proj0.dto.UserDTO</value>
+				<value>in.co.rays.proj0.dto.CollegeDTO</value>
+				<value>in.co.rays.proj0.dto.StudentDTO</value>
+				<value>in.co.rays.proj0.dto.FacultyDTO</value>
+				<value>in.co.rays.proj0.dto.CourseDTO</value>
+				<value>in.co.rays.proj0.dto.SubjectDTO</value>
+				<value>in.co.rays.proj0.dto.MarksheetDTO</value>
+				<value>in.co.rays.proj0.dto.TimeTableDTO</value>
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="hibernateTransactionManager"
+		class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+		<property name="sessionFactory" ref="sessionFactory" />
+	</bean>
+
+	<!-- enables annotation based transaction -->
+	<tx:annotation-driven transaction-manager="hibernateTransactionManager" />
+
+</beans>

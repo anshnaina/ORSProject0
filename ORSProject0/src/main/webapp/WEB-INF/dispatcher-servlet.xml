@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
+		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.3.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd">
+
+	<!--Enables MVC annotations like @Valid, @RequestMapping etc. -->
+	<mvc:annotation-driven validator="validator"/>
+
+	<!--Scan @Repository, @Service, @Component and @Controller spring beans -->
+	<context:component-scan base-package="in.co.rays.proj0.*" />
+	
+	<!-- Specifying the Resource location to load JS, CSS, Images etc -->
+	<mvc:resources mapping="/resources/**" location="/resources/" />
+
+	<!-- Database Configuration -->
+	<import resource="hibernate-servlet.xml" />
+	
+	<!-- i18n Start -->
+	<!-- Defines the message resources or resource bundle -->
+	<bean id="messageSource"
+		class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
+		<property name="basename" value="classpath:messages" />
+		<property name="defaultEncoding" value="UTF-8" />
+	</bean>
+
+	<!-- cookie locale store the language in which request is processing -->
+	<bean id="localeResolver"
+		class="org.springframework.web.servlet.i18n.CookieLocaleResolver">
+		<property name="defaultLocale" value="en"></property>
+		<property name="cookieName" value="myAppLocaleCookie"></property>
+		<property name="cookieMaxAge" value="3600"></property>
+
+	</bean>
+
+	<!-- it intercept all new request and hold the language parameter -->
+	<mvc:interceptors>
+		<bean id="localeChangeInterceptor"
+			class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor">
+			<property name="paramName" value="lang" />
+		</bean>
+	</mvc:interceptors>
+	
+	<!-- JSR-303 -->
+    <bean id="validator"
+        class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean">
+        <property name="validationMessageSource" ref="messageSource" />
+    </bean>
+
+    <!-- i18n End -->
+	
+	 <!-- Apply Front Controller -->
+     <mvc:interceptors>
+        <mvc:interceptor>
+            <mvc:mapping path="/ctl/**/*" />
+            <mvc:mapping path="/resources/doc/**/*" />
+            <bean class="in.co.rays.proj0.ctl.FrontCtl"/>
+        </mvc:interceptor>
+    </mvc:interceptors> 
+	
+	<!--Tiles configuration start -->
+	<bean id="tilesConfigurer"
+		class="org.springframework.web.servlet.view.tiles3.TilesConfigurer">
+		<property name="definitions">
+			<list>
+				<value>/WEB-INF/tiles.xml</value>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="viewResolver"
+		class="org.springframework.web.servlet.view.UrlBasedViewResolver">
+		<property name="viewClass">
+			<value>org.springframework.web.servlet.view.tiles3.TilesView</value>
+		</property>
+	</bean>
+	<!--Tiles configuration End -->
+	
+	<!-- **** View Resolver without Tiles **** 
+	<bean
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/WEB-INF/pages/" />
+		<property name="suffix" value=".jsp" />
+	</bean> -->
+	
+	<!-- Production implementation of the JavaMailSender interface, supporting 
+		both JavaMail MimeMessages and Spring SimpleMailMessages -->
+	<bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
+		<property name="host" value="smtp.gmail.com" />
+		<property name="port" value="587" />
+		<property name="username" value="raystech2021@gmail.com" />
+		<property name="password" value="rays@2021" />
+ 
+		<!-- The name of the property, following JavaBean naming conventions -->
+		<property name="javaMailProperties">
+			<props>
+				<prop key="mail.transport.protocol">smtp</prop>
+				<prop key="mail.smtp.auth">true</prop>
+				<prop key="mail.smtp.starttls.enable">true</prop>
+				<prop key="mail.debug">true</prop>
+			</props>
+		</property>
+	</bean>
+
+</beans>

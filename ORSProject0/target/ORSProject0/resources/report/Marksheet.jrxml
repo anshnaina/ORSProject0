@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.0.4.final using JasperReports Library version 6.0.4  -->
+<!-- 2018-10-04T10:11:39 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Marksheet" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="7e8affd5-f0e4-4e05-82b9-69e0e647a832">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="MyAdapter"/>
+	<queryString>
+		<![CDATA[select Rollno, name, physics, chemistry, maths, (physics+chemistry+maths) as total , round((((physics+chemistry+maths)*100)/300),2) as Percentage from st_marksheet where physics>=33 and chemistry>=33 and maths>=33 order by total desc limit 0,10]]>
+	</queryString>
+	<field name="Rollno" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="name" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="physics" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="chemistry" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="maths" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="total" class="java.lang.Long"/>
+	<field name="Percentage" class="java.math.BigDecimal"/>
+	<background>
+		<band/>
+	</background>
+	<title>
+		<band height="72">
+			<frame>
+				<reportElement mode="Opaque" x="-20" y="-20" width="595" height="92" backcolor="#6CB8E0" uuid="cded6c32-2f62-456c-83c7-52a2f85cc22d"/>
+				<box>
+					<topPen lineWidth="1.1" lineStyle="Solid" lineColor="#FA5F5C"/>
+					<leftPen lineWidth="1.1" lineStyle="Solid" lineColor="#FA5F5C"/>
+					<bottomPen lineWidth="1.1" lineStyle="Solid" lineColor="#FA5F5C"/>
+					<rightPen lineWidth="1.1" lineStyle="Solid" lineColor="#FA5F5C"/>
+				</box>
+				<staticText>
+					<reportElement x="220" y="20" width="234" height="60" forecolor="#FFFFFF" uuid="f9af4cb3-be95-43ab-8693-22d22ac6dbfe"/>
+					<textElement>
+						<font size="34" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Merit List]]></text>
+				</staticText>
+				<image>
+					<reportElement x="400" y="20" width="195" height="69" uuid="05d8a266-09dd-47c7-9fb2-e2d1e07d7278"/>
+					<imageExpression><![CDATA["E:/workspace/ORS_Proj3/src/main/webapp/img/customLogo1.png"]]></imageExpression>
+				</image>
+			</frame>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="13"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="25">
+			<line>
+				<reportElement x="-20" y="20" width="595" height="1" forecolor="#666666" uuid="8cd39df6-64dd-4027-94c0-1ebd760b3c97"/>
+			</line>
+			<staticText>
+				<reportElement mode="Opaque" x="43" y="0" width="76" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="bb8fb506-eaf1-4d97-abec-b07510e64076">
+					<property name="local_mesure_unitwidth" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Rollno]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="120" y="0" width="79" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="6303fe10-5dfa-4386-9399-c034aba858b8"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[name]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="200" y="0" width="79" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="3a014971-41c2-4274-9007-2e75e9f70fa9"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[physics]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="281" y="0" width="68" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="f38ceb85-ecc9-47c3-9775-d05989e96a40">
+					<property name="local_mesure_unitwidth" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[chemistry]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="350" y="0" width="60" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="5c863c20-8943-4e76-abc6-31b3b63f23f6">
+					<property name="local_mesure_unitwidth" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[maths]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="411" y="0" width="68" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="a8ba173f-c145-4530-b17d-84883fd7c992"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[total]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="480" y="0" width="85" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="5c00c54b-99f1-4093-a028-59a7b8889d37"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Percentage]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="0" width="41" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="acb6e819-e364-4971-ae37-ac6d6c33525a">
+					<property name="local_mesure_unitwidth" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<box bottomPadding="0"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[S. No.]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="42">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="-1" y="41" width="555" height="1" forecolor="#2D262E" backcolor="#451E1C" uuid="a37897cb-3a9b-4fee-bfbf-26bce69105af"/>
+			</line>
+			<textField isStretchWithOverflow="true">
+				<reportElement stretchType="RelativeToBandHeight" mode="Opaque" x="39" y="22" width="79" height="19" forecolor="#566954" backcolor="#F4FCB1" uuid="75148256-b403-48dd-a13f-42e7c5485d69"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Rollno}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement mode="Opaque" x="120" y="21" width="79" height="19" forecolor="#566954" backcolor="#F4FCB1" uuid="afbec205-a935-474b-b264-5f0703ee3a0e"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{name}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement stretchType="RelativeToBandHeight" mode="Opaque" x="201" y="22" width="77" height="19" forecolor="#566954" backcolor="#F4FCB1" uuid="044a6542-ed60-4da8-b3cc-72a0543595b1"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{physics}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement stretchType="RelativeToBandHeight" mode="Opaque" x="280" y="22" width="68" height="19" forecolor="#566954" backcolor="#F4FCB1" uuid="2a90ab5d-8964-4357-b166-c3d3c6613228"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{chemistry}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement stretchType="RelativeToBandHeight" mode="Opaque" x="349" y="22" width="60" height="19" forecolor="#566954" backcolor="#F4FCB1" uuid="e76ab54d-9c0e-4626-bb9c-f1e35c57ece7"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{maths}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement stretchType="RelativeToBandHeight" mode="Opaque" x="410" y="22" width="68" height="19" forecolor="#566954" backcolor="#F4FCB1" uuid="90de261f-7b34-44df-a9fb-e1d82eaa6934"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{total}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement stretchType="RelativeToBandHeight" mode="Opaque" x="479" y="22" width="85" height="19" forecolor="#566954" backcolor="#F4FCB1" uuid="7bb4a6ae-2e0c-47c7-9dbd-29b60ea6d1ca"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{Percentage}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement stretchType="RelativeToBandHeight" mode="Opaque" x="-1" y="22" width="39" height="17" forecolor="#566954" backcolor="#F4FCB1" uuid="a36c2acb-c04b-4962-a0f3-1547390185e6">
+					<property name="local_mesure_unitwidth" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.width" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font fontName="Arial"/>
+					<paragraph lineSpacing="1_1_2"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{COLUMN_COUNT}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band/>
+	</columnFooter>
+	<pageFooter>
+		<band height="17">
+			<textField>
+				<reportElement mode="Opaque" x="0" y="4" width="515" height="13" backcolor="#E6E6E6" uuid="ff065ae9-ea62-4af0-8d7f-037cb8883932"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement mode="Opaque" x="515" y="4" width="40" height="13" backcolor="#E6E6E6" uuid="d043a064-7c1a-434a-8858-7281ca83ce38"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="0" y="4" width="100" height="13" uuid="f4661fcf-bfb0-433a-8d23-b37f322b231c"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band/>
+	</summary>
+</jasperReport>

@@ -1,0 +1,448 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.0.4.final using JasperReports Library version 6.0.4  -->
+<!-- 2021-11-30T14:56:16 -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="MeritList0" pageWidth="595" pageHeight="842" whenNoDataType="AllSectionsNoDetail" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="4eedbb89-b4f6-4469-9ab6-f642a1688cf7">
+	<property name="template.engine" value="tabular_template"/>
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<style name="Title" forecolor="#FFFFFF" fontName="Times New Roman" fontSize="50" isBold="false" pdfFontName="Times-Bold"/>
+	<style name="SubTitle" forecolor="#CCCCCC" fontName="Times New Roman" fontSize="18" isBold="false" pdfFontName="Times-Roman"/>
+	<style name="Column header" forecolor="#666666" fontName="Times New Roman" fontSize="14" isBold="true" pdfFontName="Times-Roman"/>
+	<style name="Detail" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman"/>
+	<style name="Row" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style mode="Opaque" backcolor="#EEEFF0"/>
+		</conditionalStyle>
+	</style>
+	<style name="Table">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+			<topPen lineWidth="1.0" lineColor="#000000"/>
+			<leftPen lineWidth="1.0" lineColor="#000000"/>
+			<bottomPen lineWidth="1.0" lineColor="#000000"/>
+			<rightPen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table_TH" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table_CH" mode="Opaque" backcolor="#CACED0">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style backcolor="#D8D8D8"/>
+		</conditionalStyle>
+	</style>
+	<style name="Table 1_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table 1_CH" mode="Opaque" backcolor="#1A568F">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table 1_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<subDataset name="tableDataset" uuid="87f178e1-e30a-4973-a968-c9c9a0e2bed2">
+		<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Ors_project0"/>
+		<queryString>
+			<![CDATA[select * from st_marksheet]]>
+		</queryString>
+		<field name="ID" class="java.lang.Long">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<field name="CREATED_BY" class="java.lang.String">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<field name="CREATED_DATETIME" class="java.sql.Timestamp">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<field name="MODIFIED_BY" class="java.lang.String">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<field name="MODIFIED_DATETIME" class="java.sql.Timestamp">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<field name="CHEMISTRY" class="java.lang.Integer">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<field name="MATHS" class="java.lang.Integer">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<field name="NAME" class="java.lang.String">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<field name="PHYSICS" class="java.lang.Integer">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<field name="ROLL_NO" class="java.lang.String">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<field name="STUDENT_ID" class="java.lang.Long">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<field name="Total" class="java.lang.Integer">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<group name="ID">
+			<groupExpression><![CDATA[$F{ID}]]></groupExpression>
+		</group>
+		<group name="CREATED_BY">
+			<groupExpression><![CDATA[$F{CREATED_BY}]]></groupExpression>
+		</group>
+		<group name="CREATED_DATETIME">
+			<groupExpression><![CDATA[$F{CREATED_DATETIME}]]></groupExpression>
+		</group>
+		<group name="MODIFIED_BY">
+			<groupExpression><![CDATA[$F{MODIFIED_BY}]]></groupExpression>
+		</group>
+		<group name="MODIFIED_DATETIME">
+			<groupExpression><![CDATA[$F{MODIFIED_DATETIME}]]></groupExpression>
+		</group>
+		<group name="CHEMISTRY">
+			<groupExpression><![CDATA[$F{CHEMISTRY}]]></groupExpression>
+		</group>
+		<group name="MATHS">
+			<groupExpression><![CDATA[$F{MATHS}]]></groupExpression>
+		</group>
+		<group name="NAME">
+			<groupExpression><![CDATA[$F{NAME}]]></groupExpression>
+		</group>
+		<group name="PHYSICS">
+			<groupExpression><![CDATA[$F{PHYSICS}]]></groupExpression>
+		</group>
+		<group name="ROLL_NO">
+			<groupExpression><![CDATA[$F{ROLL_NO}]]></groupExpression>
+		</group>
+		<group name="STUDENT_ID">
+			<groupExpression><![CDATA[$F{STUDENT_ID}]]></groupExpression>
+		</group>
+		<group name="Total">
+			<groupExpression><![CDATA[$F{Total}]]></groupExpression>
+		</group>
+	</subDataset>
+	<subDataset name="Dataset1" uuid="22f68623-1fbe-41c1-b6e1-97a93ce8dc89">
+		<property name="com.jaspersoft.studio.data.defaultdataadapter" value="Ors_project0"/>
+		<queryString>
+			<![CDATA[SELECT `ROLL_NO`, `NAME`, PHYSICS ,CHEMISTRY , MATHS, (PHYSICS + CHEMISTRY + MATHS)AS TOTAL ,ROUND((PHYSICS + CHEMISTRY + MATHS)/3,2)AS PERCENTAGE FROM st_marksheet  WHERE PHYSICS>=33 AND CHEMISTRY>=33 AND MATHS>=33 ORDER BY TOTAL DESC]]>
+		</queryString>
+		<field name="ROLL_NO" class="java.lang.String">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<field name="NAME" class="java.lang.String">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<field name="PHYSICS" class="java.lang.Integer">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<field name="CHEMISTRY" class="java.lang.Integer">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<field name="MATHS" class="java.lang.Integer">
+			<fieldDescription><![CDATA[]]></fieldDescription>
+		</field>
+		<field name="TOTAL" class="java.lang.Long"/>
+		<field name="PERCENTAGE" class="java.math.BigDecimal"/>
+		<group name="ROLL_NO">
+			<groupExpression><![CDATA[$F{ROLL_NO}]]></groupExpression>
+		</group>
+		<group name="NAME">
+			<groupExpression><![CDATA[$F{NAME}]]></groupExpression>
+		</group>
+		<group name="PHYSICS">
+			<groupExpression><![CDATA[$F{PHYSICS}]]></groupExpression>
+		</group>
+		<group name="CHEMISTRY">
+			<groupExpression><![CDATA[$F{CHEMISTRY}]]></groupExpression>
+		</group>
+		<group name="MATHS">
+			<groupExpression><![CDATA[$F{MATHS}]]></groupExpression>
+		</group>
+		<group name="TOTAL">
+			<groupExpression><![CDATA[$F{TOTAL}]]></groupExpression>
+		</group>
+		<group name="PERCENTAGE">
+			<groupExpression><![CDATA[$F{PERCENTAGE}]]></groupExpression>
+		</group>
+	</subDataset>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<title>
+		<band height="163" splitType="Stretch">
+			<line>
+				<reportElement x="0" y="100" width="556" height="1" uuid="806ce5df-1219-4876-ae0c-ca7405b1f246">
+					<property name="local_mesure_unitheight" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+			</line>
+			<staticText>
+				<reportElement x="334" y="0" width="50" height="23" uuid="0f86baff-6386-4f3f-b3fe-2388707babe8"/>
+				<box topPadding="2" rightPadding="4"/>
+				<textElement textAlignment="Right">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Date :]]></text>
+			</staticText>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="384" y="0" width="173" height="25" uuid="bb10dbe1-0a4f-4722-9953-c163b63cf979"/>
+				<box topPadding="2" leftPadding="2"/>
+				<textElement>
+					<font size="14" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="-1" width="290" height="81" forecolor="#6636A8" backcolor="rgba(255, 240, 253, 0.7411765)" uuid="e622555d-198b-4ccd-a4a1-c59c53304058">
+					<property name="local_mesure_unitheight" value="pixel"/>
+					<property name="com.jaspersoft.studio.unit.height" value="px"/>
+				</reportElement>
+				<textElement textAlignment="Center">
+					<font size="29" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Rays Technologies (Indore)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="364" y="70" width="205" height="20" uuid="b8cc42fd-b569-497d-834d-7e854040ad18"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Phone-0731 4249244]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="364" y="30" width="205" height="20" uuid="c226e44d-3bb5-4145-b0b3-903bf1d79fde"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[President Tower, Madhumilan Square.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="364" y="50" width="205" height="20" uuid="b96f7183-44f8-43ad-ba60-43d8fbf50b6e"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Indore-452001, Madhya Pradesh, India]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="104" width="556" height="59" forecolor="#0D3473" uuid="1f8f420d-2ed1-4c60-887e-e32237075eb5"/>
+				<box topPadding="1" leftPadding="97"/>
+				<textElement>
+					<font size="35" isBold="true" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[    Marksheet Merit List]]></text>
+			</staticText>
+		</band>
+	</title>
+	<summary>
+		<band height="293" splitType="Stretch">
+			<property name="local_mesure_unitheight" value="pixel"/>
+			<componentElement>
+				<reportElement x="0" y="4" width="556" height="150" uuid="55dfadfb-8bdb-470a-90d1-309b60a39de2"/>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="Dataset1" uuid="6eb996cf-caca-4a93-8f04-a301fa37919b">
+						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					</datasetRun>
+					<jr:column width="90" uuid="c4f38acf-41ba-42f4-bde7-390a52b27225">
+						<jr:columnHeader style="Table 1_CH" height="30">
+							<staticText>
+								<reportElement x="0" y="0" width="90" height="30" forecolor="#FFFCFC" uuid="77c00308-05ef-49d8-beae-2988603d66ef"/>
+								<box topPadding="7" leftPadding="11"/>
+								<textElement>
+									<font size="12" isBold="true"/>
+								</textElement>
+								<text><![CDATA[ROLL_NO]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:columnFooter style="Table 1_CH" height="30"/>
+						<jr:detailCell style="Table 1_TD" height="30">
+							<textField>
+								<reportElement x="0" y="0" width="90" height="30" uuid="8bd94988-d35b-4989-8e39-5bf96f052c18"/>
+								<box topPadding="7" leftPadding="1"/>
+								<textElement textAlignment="Center">
+									<font size="12" isBold="true"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{ROLL_NO}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="100" uuid="3fe1a88e-29d7-4950-af85-7abd30037470">
+						<jr:columnHeader style="Table 1_CH" height="30">
+							<staticText>
+								<reportElement x="0" y="0" width="100" height="30" forecolor="#FFFFFF" uuid="40364641-0119-4ed4-9bdb-56ec1f0dbb36"/>
+								<box topPadding="7" leftPadding="33"/>
+								<textElement>
+									<font size="12" isBold="true"/>
+								</textElement>
+								<text><![CDATA[NAME]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:columnFooter style="Table 1_CH" height="30"/>
+						<jr:detailCell style="Table 1_TD" height="30">
+							<textField>
+								<reportElement x="0" y="0" width="100" height="30" uuid="d32f9a8f-88a7-499c-8547-ad1cde9206e9"/>
+								<box topPadding="7" leftPadding="22"/>
+								<textElement>
+									<font size="12" isBold="true"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{NAME}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="70" uuid="e46ab220-d772-48cc-a213-d6a6e1a73c67">
+						<jr:columnHeader style="Table 1_CH" height="30">
+							<staticText>
+								<reportElement x="0" y="0" width="70" height="30" forecolor="#FFFFFF" uuid="cae89f47-0368-4e8e-93b7-f591cc0d5f53"/>
+								<box topPadding="7" leftPadding="9"/>
+								<textElement>
+									<font size="12" isBold="true"/>
+								</textElement>
+								<text><![CDATA[PHYSICS]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:columnFooter style="Table 1_CH" height="30"/>
+						<jr:detailCell style="Table 1_TD" height="30">
+							<textField>
+								<reportElement x="0" y="0" width="70" height="30" uuid="a852fd56-ce5a-4728-92d0-3fc59b146203"/>
+								<box topPadding="7" leftPadding="26"/>
+								<textElement>
+									<font size="12" isBold="true"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{PHYSICS}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="80" uuid="64dadcbb-c23b-4be9-8d4f-0e85d0330ece">
+						<jr:columnHeader style="Table 1_CH" height="30">
+							<staticText>
+								<reportElement x="0" y="0" width="80" height="30" forecolor="#FFFFFF" uuid="6cfd2af0-8d3b-453e-b83a-5314c4d590da"/>
+								<box topPadding="7" leftPadding="6"/>
+								<textElement>
+									<font size="12" isBold="true"/>
+								</textElement>
+								<text><![CDATA[CHEMISTRY]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:columnFooter style="Table 1_CH" height="30"/>
+						<jr:detailCell style="Table 1_TD" height="30">
+							<textField>
+								<reportElement x="0" y="0" width="80" height="30" uuid="f0a25f10-8444-4850-b4a9-9d9c8a310035"/>
+								<box topPadding="6" leftPadding="33"/>
+								<textElement>
+									<font size="12" isBold="true"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{CHEMISTRY}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="70" uuid="88f0bf44-e88f-4866-9b0c-ae75b5b1528b">
+						<jr:columnHeader style="Table 1_CH" height="30">
+							<staticText>
+								<reportElement x="0" y="0" width="70" height="30" forecolor="#FFFFFF" uuid="62e73147-8d2c-4ac2-85c6-ba41b07bd729"/>
+								<box topPadding="7" leftPadding="14"/>
+								<textElement>
+									<font size="12" isBold="true"/>
+								</textElement>
+								<text><![CDATA[MATHS]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:columnFooter style="Table 1_CH" height="30"/>
+						<jr:detailCell style="Table 1_TD" height="30">
+							<textField>
+								<reportElement x="0" y="0" width="70" height="30" uuid="7eec4d1e-9826-4327-b285-c234a00c0559"/>
+								<box topPadding="7" leftPadding="28"/>
+								<textElement>
+									<font size="12" isBold="true"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{MATHS}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="60" uuid="26c9a5e7-c1c7-4157-a19a-fb911f84dd69">
+						<jr:columnHeader style="Table 1_CH" height="30">
+							<staticText>
+								<reportElement x="0" y="0" width="60" height="30" forecolor="#FFFFFF" uuid="a9ac0283-d296-4402-93a6-acaba274cefb"/>
+								<box topPadding="7" leftPadding="12"/>
+								<textElement>
+									<font size="12" isBold="true"/>
+								</textElement>
+								<text><![CDATA[TOTAL]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:columnFooter style="Table 1_CH" height="30"/>
+						<jr:detailCell style="Table 1_TD" height="30">
+							<textField>
+								<reportElement x="0" y="0" width="60" height="30" uuid="a8ee5b15-2435-4b1f-8b3b-54c334b2ea12"/>
+								<box topPadding="7" leftPadding="22"/>
+								<textElement>
+									<font size="12" isBold="true"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{TOTAL}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="86" uuid="de0e14fb-019e-45e3-9f0d-8dff730745a8">
+						<jr:columnHeader style="Table 1_CH" height="30">
+							<staticText>
+								<reportElement x="0" y="0" width="86" height="30" forecolor="#FFFFFF" uuid="004922d5-2c79-412a-b600-b776ba7c65a0"/>
+								<box topPadding="7" leftPadding="0"/>
+								<textElement>
+									<font size="12" isBold="true"/>
+								</textElement>
+								<text><![CDATA[PERCENTAGE]]></text>
+							</staticText>
+						</jr:columnHeader>
+						<jr:columnFooter style="Table 1_CH" height="30"/>
+						<jr:detailCell style="Table 1_TD" height="30">
+							<textField>
+								<reportElement x="0" y="0" width="86" height="30" uuid="ce6045a5-ed48-4cc0-aab5-79fb2d68e72c"/>
+								<box topPadding="7" leftPadding="19"/>
+								<textElement>
+									<font size="12" isBold="true"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$F{PERCENTAGE}+"%"]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+		</band>
+	</summary>
+</jasperReport>
